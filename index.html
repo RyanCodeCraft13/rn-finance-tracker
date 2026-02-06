@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RN Finance Tracker</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<!-- PIN SCREEN -->
+<div id="pinScreen">
+  <h2>Enter PIN</h2>
+  <input type="password" id="pinInput" maxlength="4" placeholder="••••">
+  <button onclick="checkPIN()">Unlock</button>
+  <button onclick="changePIN()">Change PIN</button>
+</div>
+
+<h1>🏦 RN Finance Tracker</h1>
+
+<!-- Bank Operations -->
+<div class="card">
+  <select id="bank"></select>
+  <input type="number" id="amount" placeholder="Amount">
+  <select id="type">
+    <option value="deposit">Deposit</option>
+    <option value="withdraw">Withdraw</option>
+    <option value="transfer">Transfer</option>
+  </select>
+  <select id="transferBank"></select>
+  <select id="category">
+    <option>Food</option>
+    <option>Bills</option>
+    <option>General</option>
+    <option>Entertainment</option>
+  </select>
+  <input id="note" placeholder="Note">
+  <button onclick="addTransaction()">Add Transaction</button>
+  <button onclick="exportBackup()">Backup JSON</button>
+  <input type="file" onchange="importBackup(event)">
+</div>
+
+<!-- Balances -->
+<div class="card">
+  <h3>Balances</h3>
+  <div id="balances"></div>
+</div>
+
+<!-- Monthly Summary -->
+<div class="card">
+  <h3>Monthly Summary</h3>
+  <div id="summary"></div>
+</div>
+
+<!-- Analytics -->
+<div class="card">
+  <canvas id="pieChart"></canvas>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
